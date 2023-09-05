@@ -34,3 +34,7 @@
 .card-star:hover {
     cursor: pointer;
 }
+
+.profile-genome {
+    text-decoration: none;
+}

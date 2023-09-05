@@ -3,7 +3,6 @@ import { FavoriteCard } from "./FavoriteCard.jsx";
 import "./FavoritesList.css";
 
 export const FavoritesList = ({ favorites, handleFavoritesChange }) => {
-  console.log(favorites);
   return (
     <div className="favorites-wrapper">
       <h1 className="favorites-title">List of favorites</h1>

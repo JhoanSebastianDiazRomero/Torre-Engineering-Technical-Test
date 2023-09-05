@@ -5,7 +5,7 @@ import debounce from "lodash.debounce";
 
 const LIMIT = 10;
 
-export const SearchBar = ({ setSearchResults }) => {
+export const SearchBar = ({ setSearchResults, addToSearchHistory }) => {
   const [input, setInput] = useState("");
   const fetchData = () => {
     fetch("https://torre.ai/api/entities/_searchStream", {
@@ -20,12 +20,14 @@ export const SearchBar = ({ setSearchResults }) => {
         } else {
           setSearchResults(data);
         }
-        console.log(data);
       });
     });
   };
 
   const sendRequest = () => {
+    if (input !== "") {
+      addToSearchHistory(input);
+    }
     fetchData(input);
   };
 

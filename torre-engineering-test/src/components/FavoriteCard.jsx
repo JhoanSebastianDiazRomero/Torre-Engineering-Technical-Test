@@ -19,15 +19,21 @@ export const FavoriteCard = ({ favorite, handleFavoritesChange }) => {
         alt="Add/remove favorite"
         onClick={unFavorite}
       />
-      <img
-        className="card-profile-picture"
-        src={favorite.imageUrl}
-        alt="Profile Picture"
-      />
-      <div className="info-container">
-        <div className="name">{favorite.name}</div>
-        <div className="headline">{favorite.headline}</div>
-      </div>
+      <a
+        className="profile-genome"
+        href={`https://torre.ai/${favorite.username}`}
+        target="_blank"
+      >
+        <img
+          className="card-profile-picture"
+          src={favorite.imageUrl}
+          alt="Profile Picture"
+        />
+        <div className="info-container">
+          <div className="name">{favorite.name}</div>
+          <div className="headline">{favorite.headline}</div>
+        </div>
+      </a>
     </div>
   );
 };

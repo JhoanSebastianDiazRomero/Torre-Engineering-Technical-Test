@@ -1,0 +1,40 @@
+.search-history-wrapper {
+    width: 100%;
+}
+
+.search-history-title {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.latest-search-terms {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.latest-search-terms thead tr {
+    background-color: #CDDC39;
+    color: black;
+    text-align: center;
+}
+
+.latest-search-terms th,
+.latest-search-terms td {
+    padding: 12px 15px;
+}
+
+.latest-search-terms tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+
+.latest-search-terms tbody tr.search-term {
+    font-weight: bold;
+    color: #CDDC39;
+    text-align: center;
+}
