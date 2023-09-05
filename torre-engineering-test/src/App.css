@@ -2,14 +2,27 @@
     background-color: #27292d;
     height: 100vh;
     width: 100vw;
+    overflow-y: scroll;
 }
 
 .search-bar-container {
-    padding-top: 20vh;
+    padding-top: 30px;
     width: 40%;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-width: 300px;
+}
+
+.logo-container {
+    padding-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    height: 100px;
+    width: 100px;
 }

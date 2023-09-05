@@ -1,0 +1,13 @@
+.favourites-container {
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: -10px;
+}
+
+.grid-item {
+    flex-basis: 25%;
+    padding-left: 10px;
+    margin-bottom: 16px;
+}

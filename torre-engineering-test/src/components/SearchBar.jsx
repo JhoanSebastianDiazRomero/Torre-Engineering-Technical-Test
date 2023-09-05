@@ -15,7 +15,11 @@ export const SearchBar = ({ setSearchResults }) => {
     }).then((response) => {
       response.text().then((text) => {
         const data = text?.match(/.+/g)?.map(JSON.parse);
-        setSearchResults(data);
+        if (input === "") {
+          setSearchResults([]);
+        } else {
+          setSearchResults(data);
+        }
         console.log(data);
       });
     });
@@ -37,7 +41,7 @@ export const SearchBar = ({ setSearchResults }) => {
     const func = () => {
       ref.current?.();
     };
-    return debounce(func, 600);
+    return debounce(func, 500);
   }, []);
 
   useEffect(() => {

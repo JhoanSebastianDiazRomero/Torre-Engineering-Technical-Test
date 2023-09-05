@@ -17,7 +17,12 @@ export const SearchResult = ({ result, handleFavouritesChange }) => {
 
   function changeFavourite() {
     setIsFavourite(!isFavourite);
-    handleFavouritesChange(result.username);
+    handleFavouritesChange(
+      result.username,
+      result.name,
+      result.professionalHeadline,
+      getImagePath(),
+    );
   }
 
   function getFavouritePath() {
