@@ -2,26 +2,26 @@ import "./App.css";
 import { SearchBar } from "./components/SearchBar.jsx";
 import { useState } from "react";
 import { SearchResultsList } from "./components/SearchResultsList.jsx";
-import { FavouritesList } from "./components/FavouritesList.jsx";
+import { FavoritesList } from "./components/FavoritesList.jsx";
 import logo from "./assets/fwc3x9ygbr3fmtsqz2cj.webp";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
-  const [favourites, setFavourites] = useState(new Map());
+  const [favorites, setFavorites] = useState(new Map());
 
-  const handleFavouritesChange = (username, name, headline, imageUrl) => {
-    if (favourites.has(username)) {
-      const stateCopy = new Map(favourites);
+  const handleFavoritesChange = (username, name, headline, imageUrl) => {
+    if (favorites.has(username)) {
+      const stateCopy = new Map(favorites);
       stateCopy.delete(username);
-      setFavourites(stateCopy);
+      setFavorites(stateCopy);
     } else {
-      const stateCopy = new Map(favourites);
+      const stateCopy = new Map(favorites);
       stateCopy.set(username, {
         name: name,
         headline: headline,
         imageUrl: imageUrl,
       });
-      setFavourites(stateCopy);
+      setFavorites(stateCopy);
     }
   };
 
@@ -34,9 +34,13 @@ function App() {
         <SearchBar setSearchResults={setSearchResults} />
         <SearchResultsList
           searchResults={searchResults}
-          handleFavouritesChange={handleFavouritesChange}
+          handleFavoritesChange={handleFavoritesChange}
+          favoriteUsers={[...favorites.keys()]}
         />
-        <FavouritesList favourites={favourites} />
+        <FavoritesList
+          favorites={favorites}
+          handleFavoritesChange={handleFavoritesChange}
+        />
       </div>
     </div>
   );

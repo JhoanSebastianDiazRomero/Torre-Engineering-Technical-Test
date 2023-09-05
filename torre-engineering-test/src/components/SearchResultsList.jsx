@@ -3,7 +3,8 @@ import { SearchResult } from "./SearchResult.jsx";
 
 export const SearchResultsList = ({
   searchResults,
-  handleFavouritesChange,
+  handleFavoritesChange,
+  favoriteUsers,
 }) => {
   return (
     <div className="results-list">
@@ -12,7 +13,8 @@ export const SearchResultsList = ({
           <SearchResult
             result={result}
             key={result.ardaId}
-            handleFavouritesChange={handleFavouritesChange}
+            handleFavoritesChange={handleFavoritesChange}
+            favoriteUsers={favoriteUsers}
           />
         );
       })}

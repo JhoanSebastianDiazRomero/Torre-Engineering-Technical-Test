@@ -6,8 +6,8 @@ import filledStar from "../assets/filled_star.svg";
 const DEFAULT_PROFILE_PICTURE_URL =
   "https://upload.wikimedia.org/wikipedia/commons/a/aa/Sin_cara.png";
 
-export const SearchResult = ({ result, handleFavouritesChange }) => {
-  const [isFavourite, setIsFavourite] = useState(false);
+export const SearchResult = ({ result, handleFavoritesChange }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const getImagePath = () => {
     return result.imageUrl != null
@@ -15,9 +15,9 @@ export const SearchResult = ({ result, handleFavouritesChange }) => {
       : DEFAULT_PROFILE_PICTURE_URL;
   };
 
-  function changeFavourite() {
-    setIsFavourite(!isFavourite);
-    handleFavouritesChange(
+  function changeFavorite() {
+    setIsFavorite(!isFavorite);
+    handleFavoritesChange(
       result.username,
       result.name,
       result.professionalHeadline,
@@ -25,8 +25,8 @@ export const SearchResult = ({ result, handleFavouritesChange }) => {
     );
   }
 
-  function getFavouritePath() {
-    return isFavourite ? filledStar : emptyStar;
+  function getFavoritePath() {
+    return isFavorite ? filledStar : emptyStar;
   }
 
   return (
@@ -47,10 +47,10 @@ export const SearchResult = ({ result, handleFavouritesChange }) => {
         </div>
       </a>
       <img
-        src={getFavouritePath()}
+        src={getFavoritePath()}
         className="star"
         alt="Add/remove favorite"
-        onClick={changeFavourite}
+        onClick={changeFavorite}
       />
     </div>
   );

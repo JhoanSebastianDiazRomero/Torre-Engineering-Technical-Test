@@ -1,4 +1,8 @@
-.favourites-container {
+.favorites-wrapper {
+    width: 100%;
+}
+
+.favorites-container {
     padding-top: 30px;
     display: flex;
     flex-wrap: wrap;
@@ -10,4 +14,9 @@
     flex-basis: 25%;
     padding-left: 10px;
     margin-bottom: 16px;
+}
+
+.favorites-title {
+    font-weight: bold;
+    margin-top: 30px;
 }
