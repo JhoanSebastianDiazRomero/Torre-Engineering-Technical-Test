@@ -6,11 +6,16 @@ import { FavoritesList } from "./components/FavoritesList.jsx";
 import logo from "./assets/fwc3x9ygbr3fmtsqz2cj.webp";
 import { SearchHistory } from "./components/SearchHistory.jsx";
 
+//App
 function App() {
+  //State that stores the search results from the API
   const [searchResults, setSearchResults] = useState([]);
+  //State that stores a map of the favorite people chosen by the user
   const [favorites, setFavorites] = useState(new Map());
+  //State that stores the latest 10 terms of the search history
   const [searchHistory, setSearchHistory] = useState([]);
 
+  //Updates state when user adds people to favorites
   const handleFavoritesChange = (username, name, headline, imageUrl) => {
     if (favorites.has(username)) {
       const stateCopy = new Map(favorites);
@@ -27,6 +32,7 @@ function App() {
     }
   };
 
+  //Adds a term to the search history
   const addToSearchHistory = (searchTerm) => {
     const copy = [...searchHistory];
     copy.push(searchTerm);

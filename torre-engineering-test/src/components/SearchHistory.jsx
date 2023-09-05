@@ -1,6 +1,7 @@
 import React from "react";
 import "./SearchHistory.css";
 
+//Component that represents the list of the latest 10 searched terms
 export const SearchHistory = ({ searchHistory }) => {
   return (
     <div className="search-history-wrapper">

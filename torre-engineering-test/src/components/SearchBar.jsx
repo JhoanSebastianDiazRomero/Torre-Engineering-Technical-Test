@@ -5,8 +5,12 @@ import debounce from "lodash.debounce";
 
 const LIMIT = 10;
 
+//Component that represents the search bar
 export const SearchBar = ({ setSearchResults, addToSearchHistory }) => {
+  //State that represents the user search query
   const [input, setInput] = useState("");
+
+  //API call to get people's information from torre
   const fetchData = () => {
     fetch("https://torre.ai/api/entities/_searchStream", {
       method: "POST",
@@ -31,6 +35,7 @@ export const SearchBar = ({ setSearchResults, addToSearchHistory }) => {
     fetchData(input);
   };
 
+  //Debounce implementation so the API is not called after every keystroke
   const onChange = (e) => {
     const value = e.target.value;
     setInput(value);

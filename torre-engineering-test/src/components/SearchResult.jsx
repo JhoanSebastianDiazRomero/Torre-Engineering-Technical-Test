@@ -6,7 +6,9 @@ import filledStar from "../assets/filled_star.svg";
 const DEFAULT_PROFILE_PICTURE_URL =
   "https://upload.wikimedia.org/wikipedia/commons/a/aa/Sin_cara.png";
 
+//Component that represents each individual result
 export const SearchResult = ({ result, handleFavoritesChange }) => {
+  //State that represents if the user picked the person as favorite
   const [isFavorite, setIsFavorite] = useState(false);
 
   const getImagePath = () => {

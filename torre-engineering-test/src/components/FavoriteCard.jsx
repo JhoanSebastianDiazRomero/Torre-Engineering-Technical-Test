@@ -1,6 +1,7 @@
 import "./FavoriteCard.css";
 import filledStar from "../assets/filled_star.svg";
 
+//Component that represents each specific person chosen as favorite
 export const FavoriteCard = ({ favorite, handleFavoritesChange }) => {
   function unFavorite() {
     handleFavoritesChange(
