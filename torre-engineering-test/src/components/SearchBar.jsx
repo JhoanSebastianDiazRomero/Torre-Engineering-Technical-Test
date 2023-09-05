@@ -5,7 +5,7 @@ import debounce from "lodash.debounce";
 
 const LIMIT = 10;
 
-export const SearchBar = () => {
+export const SearchBar = ({ setSearchResults }) => {
   const [input, setInput] = useState("");
   const fetchData = () => {
     fetch("https://torre.ai/api/entities/_searchStream", {
@@ -13,9 +13,11 @@ export const SearchBar = () => {
       body: JSON.stringify({ query: input, limit: LIMIT }),
       headers: { "Content-type": "application/json" },
     }).then((response) => {
-      response
-        .text()
-        .then((text) => console.log(text.match(/.+/g).map(JSON.parse)));
+      response.text().then((text) => {
+        const data = text?.match(/.+/g)?.map(JSON.parse);
+        setSearchResults(data);
+        console.log(data);
+      });
     });
   };
 
