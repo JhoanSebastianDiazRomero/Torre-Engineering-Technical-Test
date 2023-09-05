@@ -3,22 +3,20 @@ import searchIcon from "../assets/search_users_icon.svg";
 import "./SearchBar.css";
 import debounce from "lodash.debounce";
 
+const LIMIT = 10;
+
 export const SearchBar = () => {
   const [input, setInput] = useState("");
-  const fetchData = (value) => {
-    fetch("https://jsonplaceholder.typicode.com/users").then((response) =>
-      response.json().then((json) => {
-        const results = json.filter((user) => {
-          return (
-            value &&
-            user &&
-            user.name &&
-            user.name.toLowerCase().includes(value)
-          );
-        });
-        console.log(results);
-      }),
-    );
+  const fetchData = () => {
+    fetch("https://torre.ai/api/entities/_searchStream", {
+      method: "POST",
+      body: JSON.stringify({ query: input, limit: LIMIT }),
+      headers: { "Content-type": "application/json" },
+    }).then((response) => {
+      response
+        .text()
+        .then((text) => console.log(text.match(/.+/g).map(JSON.parse)));
+    });
   };
 
   const sendRequest = () => {
