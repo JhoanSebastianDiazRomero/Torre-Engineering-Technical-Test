@@ -1,17 +1,38 @@
 .search-result {
-    padding: 10px 20px;
     display: flex;
     align-items: center;
     background-color: black;
 }
 
-.search-result:hover {
+.user-entry:hover {
     background-color: #27292d;
 }
 
+.user-entry {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    text-decoration: none;
+    width: 100%;
+}
+
+
 .profile-picture {
+    border-radius: 10px;
     width: 50px;
     height: 50px;
+    border: 2px solid darkgray;
+}
+
+.star {
+    width: 30px;
+    height: 30px;
+    margin-right: 5%;
+}
+
+.star:hover {
+    cursor: pointer;
 }
 
 .name {
@@ -26,3 +47,4 @@
 .headline {
     color: white;
 }
+
