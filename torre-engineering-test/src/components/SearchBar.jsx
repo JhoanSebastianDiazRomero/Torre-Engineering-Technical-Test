@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import searchIcon from "../assets/search_users_icon.svg";
 import "./SearchBar.css";
 import debounce from "lodash.debounce";
@@ -21,10 +21,28 @@ export const SearchBar = () => {
     );
   };
 
-  const handleChange = (value) => {
-    setInput(value);
-    fetchData(value);
+  const sendRequest = () => {
+    fetchData(input);
   };
+
+  const onChange = (e) => {
+    const value = e.target.value;
+    setInput(value);
+    debouncedCallback();
+  };
+
+  const ref = useRef(sendRequest);
+
+  const debouncedCallback = useMemo(() => {
+    const func = () => {
+      ref.current?.();
+    };
+    return debounce(func, 600);
+  }, []);
+
+  useEffect(() => {
+    ref.current = sendRequest;
+  }, [input]);
 
   return (
     <div className="input-container">
@@ -32,7 +50,7 @@ export const SearchBar = () => {
       <input
         placeholder="Search user by name"
         value={input}
-        onChange={(e) => handleChange(e.target.value)}
+        onChange={onChange}
       ></input>
     </div>
   );
